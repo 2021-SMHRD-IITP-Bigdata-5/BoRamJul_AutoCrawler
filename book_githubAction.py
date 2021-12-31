@@ -35,12 +35,12 @@ news_href_list = []
 from selenium import webdriver
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument('--headless')
-chrome_options.add_argument('--no-sandbox')
-chrome_options.add_argument("--single-process")
-chrome_options.add_argument("--disable-dev-shm-usage")
-path='/home/sadf/chromedriver'
-driver = webdriver.Chrome(path, chrome_options=chrome_options)
+chrome_options.add_argument("--headless")  # Background(CLI) 동작 사용
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument("--remote-debugging-port=9222")  # 이 부분이 핵심
+binary = "chromedriver"
+self.driver = webdriver.Chrome(binary, chrome_options=chrome_options)
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=yes24'
 driver.get(url)
 soup = bs(driver.page_source, 'lxml')
