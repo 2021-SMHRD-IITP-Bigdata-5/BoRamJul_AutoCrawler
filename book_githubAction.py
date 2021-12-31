@@ -32,17 +32,23 @@ news_href_list = []
 ## 베스트셀러 모두 종합
 # 베스트셀러(YES24)
 #driver = wb.Chrome()
+import os
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-#ChromeOptions options = new ChromeOptions();
-#options.addArguments("--headless");
-#driver = new ChromeDriver(options);
-opt = Options()
-opt.add_argument("--no-sandbox")
-opt.add_argument("--disable-dev-shm-usage")
 
-driver = webdriver.Chrome(chrome_options=opt, 
-    executable_path='<your-chromedriver-path>')
+#opt = Options()
+#opt.add_argument("--no-sandbox")
+#opt.add_argument("--disable-dev-shm-usage")
+
+#driver = webdriver.Chrome(chrome_options=opt, 
+#    executable_path='<your-chromedriver-path>')
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("no-sandbox")
+chrome_options.add_argument("--disable-extensions")
+chrome_options.add_argument("--headless")
+a = os.path.join("path/of/driver","chromedriver")
+
+driver = webdriver.Chrome(executable_path=a,chrome_options=chrome_options)
 
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=yes24'
 driver.get(url)
