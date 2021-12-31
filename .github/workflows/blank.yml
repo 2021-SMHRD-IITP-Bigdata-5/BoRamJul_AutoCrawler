@@ -56,7 +56,11 @@ jobs:
     - name: Run!  
       run: | 
         python book_githubAction.py
-        
+    # chromedriver 설치
+    - name: Download chromedriver
+  run: |
+    wget -q -O tmp.zip https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
+    unzip tmp.zip && rm tmp.zip
 #     - name: Commits
 #       run: |
 #         git config --local user.email "your@email"
