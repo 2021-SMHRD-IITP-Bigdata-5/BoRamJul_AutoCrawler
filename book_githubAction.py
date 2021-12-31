@@ -15,7 +15,7 @@ import pandas as pd
 from bs4 import BeautifulSoup as bs
 from inspect import getsourcefile
 from os.path import abspath
-from selenium import webdriver
+from selenium import webdriver as wb
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
@@ -37,7 +37,7 @@ headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/5
 
 #driver = webdriver.Chrome(chrome_options=opt, 
 #    executable_path='<your-chromedriver-path>')
-chrome_options = webdriver.ChromeOptions()
+chrome_options = wb.ChromeOptions()
 chrome_options.add_argument("no-sandbox")
 chrome_options.add_argument("--disable-extensions")
 chrome_options.add_argument("--headless")
@@ -50,7 +50,7 @@ chrome_options.add_argument("--headless")
 
 wb_path = os.path.join('chromedriver')
 
-driver = webdriver.Chrome(executable_path=wb_path,chrome_options=chrome_options)
+driver = wb.Chrome(executable_path=wb_path,chrome_options=chrome_options)
 
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=yes24'
 driver.get(url)
@@ -162,7 +162,7 @@ conn = cx_Oracle.connect(oracle_user,oracle_password, '{}:{}/{}'.format(project-
 # 커서생성
 cursor = conn.cursor()
 
-sql = 'insert into t_best values(:1,:2, )'
+sql = 'insert into t_best values(:1,:2)'
 
 for href in df:
     cursor.execute(sql,href)
