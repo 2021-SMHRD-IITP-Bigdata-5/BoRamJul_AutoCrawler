@@ -53,7 +53,7 @@ jobs:
     # news_list_crawler.py 파일을 실행!
     - name: Run!  
       run: | 
-        python news_list_crawler.py
+        python book_githubAction.py
         
 #     - name: Commits
 #       run: |
