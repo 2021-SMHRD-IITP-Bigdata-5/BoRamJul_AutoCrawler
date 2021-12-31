@@ -34,9 +34,15 @@ news_href_list = []
 #driver = wb.Chrome()
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
-ChromeOptions options = new ChromeOptions();
-options.addArguments("--headless");
-driver = new ChromeDriver(options);
+#ChromeOptions options = new ChromeOptions();
+#options.addArguments("--headless");
+#driver = new ChromeDriver(options);
+opt = Options()
+opt.add_argument("--no-sandbox")
+opt.add_argument("--disable-dev-shm-usage")
+
+driver = webdriver.Chrome(chrome_options=opt, 
+    executable_path='<your-chromedriver-path>')
 
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=yes24'
 driver.get(url)
