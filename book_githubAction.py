@@ -41,13 +41,14 @@ chrome_options = webdriver.ChromeOptions()
 chrome_options.add_argument("no-sandbox")
 chrome_options.add_argument("--disable-extensions")
 chrome_options.add_argument("--headless")
-a = os.path.join("path/of/driver","chromedriver")
 
-BASE_DIR = os.path.dirname(os.path.abspath("__file__"))
-print(BASE_DIR)
-print(os.path.join(BASE_DIR, '.github/workflows/repo/chromedriver'))
+# a = os.path.join("path/of/driver","chromedriver")
 
-wb_path = os.path.join(BASE_DIR, '.github/workflows/repo/chromedriver')
+# BASE_DIR = os.path.dirname(os.path.abspath("__file__"))
+# print(BASE_DIR)
+# print(os.path.join(BASE_DIR, '.github/workflows/repo/chromedriver'))
+
+wb_path = os.path.join('chromedriver')
 
 driver = webdriver.Chrome(executable_path=wb_path,chrome_options=chrome_options)
 
