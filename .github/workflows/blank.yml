@@ -49,6 +49,7 @@ jobs:
         pip install lxml
         pip install flask
         pip install flask_cors
+        pip install selenium
                       
     # news_list_crawler.py 파일을 실행!
     - name: Run!  
