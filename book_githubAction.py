@@ -67,7 +67,6 @@ dic = {'순위':rank_list_yes,'책제목':title_list_yes}
 df_yes = pd.DataFrame(dic)
 
 # 베스트셀러(교보문고)
-driver = wb.Chrome()
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=kyobo'
 driver.get(url)
 soup = bs(driver.page_source, 'lxml')
@@ -82,7 +81,6 @@ dic = {'순위':rank_list_kyobo,'책제목':title_list_kyobo}
 df_kyobo = pd.DataFrame(dic)
 
 # 베스트셀러(알라딘)
-driver = wb.Chrome()
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=aladdin'
 driver.get(url)
 soup = bs(driver.page_source, 'lxml')
@@ -97,7 +95,6 @@ dic = {'순위':rank_list_din,'책제목':title_list_din}
 df_din = pd.DataFrame(dic)
 
 # 베스트셀러(인터파크도서)
-driver = wb.Chrome()
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=bookpark'
 driver.get(url)
 soup = bs(driver.page_source, 'lxml')
@@ -112,7 +109,6 @@ dic = {'순위':rank_list_park,'책제목':title_list_park}
 df_park = pd.DataFrame(dic)
 
 # 베스트셀러(영풍문고)
-driver = wb.Chrome()
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=ypbooks'
 driver.get(url)
 soup = bs(driver.page_source, 'lxml')
