@@ -40,7 +40,7 @@ chrome_options.add_argument("--no-sandbox")
 chrome_options.add_argument('--disable-dev-shm-usage')
 chrome_options.add_argument("--remote-debugging-port=9222")  # 이 부분이 핵심
 binary = "chromedriver"
-self.driver = webdriver.Chrome(binary, chrome_options=chrome_options)
+driver = webdriver.Chrome(binary, chrome_options=chrome_options)
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=yes24'
 driver.get(url)
 soup = bs(driver.page_source, 'lxml')
