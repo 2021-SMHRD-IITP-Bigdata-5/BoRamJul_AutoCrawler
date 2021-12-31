@@ -12,7 +12,6 @@ import sys
 from inspect import getsourcefile
 from os.path import abspath
 import cx_Oracle
-pip install selenium import selenium
 from selenium import webdriver as wb
 from selenium.webdriver.common.keys import Keys
 import time
