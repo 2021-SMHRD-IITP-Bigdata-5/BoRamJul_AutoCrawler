@@ -45,8 +45,11 @@ a = os.path.join("path/of/driver","chromedriver")
 
 BASE_DIR = os.path.dirname(os.path.abspath("__file__"))
 print(BASE_DIR)
+print(os.path.join(BASE_DIR), '.github/workflows/repo/chromedriver'))
 
-# driver = webdriver.Chrome(executable_path=a,chrome_options=chrome_options)
+wb_path = os.path.join(BASE_DIR), '.github/workflows/repo/chromedriver')
+
+driver = webdriver.Chrome(executable_path=wb_path,chrome_options=chrome_options)
 
 # url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=yes24'
 # driver.get(url)
