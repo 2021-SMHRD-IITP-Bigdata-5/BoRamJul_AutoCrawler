@@ -33,14 +33,11 @@ news_href_list = []
 # 베스트셀러(YES24)
 #driver = wb.Chrome()
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
+ChromeOptions options = new ChromeOptions();
+options.addArguments("--headless");
+driver = new ChromeDriver(options);
 
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_argument("--headless")  # Background(CLI) 동작 사용
-chrome_options.add_argument("--no-sandbox")
-chrome_options.add_argument('--disable-dev-shm-usage')
-chrome_options.add_argument("--remote-debugging-port=9222")  # 이 부분이 핵심
-binary = "chromedriver"
-driver = webdriver.Chrome(binary, chrome_options=chrome_options)
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=yes24'
 driver.get(url)
 soup = bs(driver.page_source, 'lxml')
