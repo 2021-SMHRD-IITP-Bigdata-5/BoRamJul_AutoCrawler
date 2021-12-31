@@ -51,16 +51,18 @@ jobs:
         pip install flask_cors
         pip install selenium
         pip install pandas
-                      
-    # news_list_crawler.py 파일을 실행!
-    - name: Run!  
-      run: | 
-        python book_githubAction.py
+                 
     # chromedriver 설치
     - name: Download chromedriver
       run: |
         wget -q -O tmp.zip https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
         unzip tmp.zip && rm tmp.zip
+        
+    # news_list_crawler.py 파일을 실행!
+    - name: Run!  
+      run: | 
+        python book_githubAction.py
+    
 #     - name: Commits
 #       run: |
 #         git config --local user.email "your@email"
