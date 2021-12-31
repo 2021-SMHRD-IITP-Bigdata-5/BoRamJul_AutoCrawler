@@ -154,7 +154,7 @@ del df['종합순위']
 ## <!-- 베스트셀러 크롤러 end -->
 
 # 데이터베이스 연결
-conn = cx_Oracle.connect(oracle_user,oracle_password, '{}:{}/{}'.format(project-db-stu.ddns.net,1524, xe))
+conn = cx_Oracle.connect(oracle_user,oracle_password, '{}:{}/{}'.format(oracle_url ,oracle_port, oracle_dbName))
 
 # 커서생성
 cursor = conn.cursor()
