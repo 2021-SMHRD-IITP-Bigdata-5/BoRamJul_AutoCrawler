@@ -58,6 +58,7 @@ jobs:
       run: |
         wget -q -O tmp.zip https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
         unzip tmp.zip && rm tmp.zip
+        --disable-dev-shm-usage
         
     # news_list_crawler.py 파일을 실행!
     - name: Run!  
