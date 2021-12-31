@@ -45,14 +45,13 @@ jobs:
     - name: install python package 
       run: |        
         pip install beautifulsoup4
-        pip uninstall urllib3    
-        pip uninstall chardet
         pip install requests 
         pip install lxml
         pip install flask
         pip install flask_cors
         pip install selenium
         pip install pandas
+        pip install --upgrade --user urllib3==1.24.3
                  
     # chromedriver 설치
     - name: Download chromedriver
