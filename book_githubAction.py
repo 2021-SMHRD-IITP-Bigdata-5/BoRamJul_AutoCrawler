@@ -161,8 +161,8 @@ cursor = conn.cursor()
 
 sql = 'insert into t_best values(:1,:2)'
 
-for href in df:
-    cursor.execute(sql,href)
+for i in range(1,len(df.loc[:,'책제목])+1):
+    cursor.execute(sql,[i, df.loc[i][''])
 # cursor.execute(sql, news_href_list[0])
     
 print('저장된 링크수>>',cursor.rowcount)
