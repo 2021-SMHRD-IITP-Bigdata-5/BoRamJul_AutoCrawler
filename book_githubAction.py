@@ -31,7 +31,14 @@ news_href_list = []
 ## <!-- 베스트셀러 크롤러 start -->
 ## 베스트셀러 모두 종합
 # 베스트셀러(YES24)
-driver = wb.Chrome()
+#driver = wb.Chrome()
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument('--headless')               # headless
+chrome_options.add_argument('--no-sandbox')
+chrome_options.add_argument('--disable-dev-shm-usage')
+chrome_options.add_argument('--disable-gpu')
+
+driver = webdriver.Chrome(chrome_driver, options=chrome_options)
 url = 'https://book.naver.com/bestsell/bestseller_list.naver?cp=yes24'
 driver.get(url)
 soup = bs(driver.page_source, 'lxml')
