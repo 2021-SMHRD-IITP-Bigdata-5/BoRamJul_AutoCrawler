@@ -45,7 +45,9 @@ jobs:
     - name: install python package 
       run: |        
         pip install beautifulsoup4
-        pip3 install requests
+        pip uninstall urllib3    
+        pip uninstall chardet
+        pip install requests 
         pip install lxml
         pip install flask
         pip install flask_cors
