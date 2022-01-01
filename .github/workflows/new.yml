@@ -6,7 +6,7 @@ name: 신간 정보 수집
 # 1분마다 동작하는 cron 스케줄러
 on: 
   schedule:
-    - cron: '* * * * *'
+    - cron: '*/2 * * * *'
 
 jobs:
   build:
