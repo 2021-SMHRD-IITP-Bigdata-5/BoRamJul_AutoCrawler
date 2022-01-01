@@ -60,7 +60,7 @@ cursor = conn.cursor()
 
 ## sql문
 sql = 'delete table T_STEADY' ## T_STEADY 초기화
-#sql = 'create table T_STEADY(book_title varchar2(200), book_rank number(15)' ## T_STEADY 테이블 생성
+sql = 'create table T_STEADY(book_title varchar2(200), book_rank number(15)' ## T_STEADY 테이블 생성
 sql = 'insert into T_STEADY values(:1,:2)'
 
 for i in range(1, len(df.loc[:,'책제목'])+1):
