@@ -21,6 +21,12 @@ jobs:
       uses: actions/setup-python@v1
       with:
         python-version: ${{ matrix.python-version }}
+            
+    # chromedriver 설치
+    - name: Download chromedriver
+      run: |
+        wget -q -O tmp.zip https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
+        unzip tmp.zip && rm tmp.zip
         
     #oracle 설치
     - name: install oracle client
@@ -53,16 +59,6 @@ jobs:
         pip install pandas
         pip install --upgrade --user urllib3==1.24.3
                  
-    # 다른 사람이 서버에 올린 chromedriver SetUp
-#     - name: Setup Chromedriver
-#       uses: nanasess/setup-chromedriver@v1.0.1
-
-    # chromedriver 설치
-    - name: Download chromedriver
-      run: |
-        wget -q -O tmp.zip https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
-        unzip tmp.zip && rm tmp.zip
-        
     # news_list_crawler.py 파일을 실행!
     - name: Run!  
       run: | 
