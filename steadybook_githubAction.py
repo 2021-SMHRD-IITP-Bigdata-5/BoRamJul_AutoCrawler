@@ -27,11 +27,23 @@ oracle_dbName = 'xe'
 
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36'}
 
+#driver = webdriver.Chrome(chrome_options=opt, 
+#    executable_path='<your-chromedriver-path>')
+chrome_options = wb.ChromeOptions()
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-extensions")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+
+wb_path = os.path.join('chromedriver')
+
+driver = wb.Chrome(executable_path=wb_path,chrome_options=chrome_options)
+
 ## <!-- 스테디셀러 크롤러 start -->
 # 스테디셀러 (알라딘)
-driver = wb.Chrome()
-url = 'https://www.aladin.co.kr/shop/common/wbest.aspx?BranchType=1&BestType=SteadySeller'
-driver.get(url)
+# driver = wb.Chrome()
+# url = 'https://www.aladin.co.kr/shop/common/wbest.aspx?BranchType=1&BestType=SteadySeller'
+# driver.get(url)
 soup = bs(driver.page_source, 'lxml')
 
 title_steady = soup.select('.bo3')
