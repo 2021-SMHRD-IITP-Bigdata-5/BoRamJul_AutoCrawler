@@ -1,0 +1,87 @@
+name: 셀러 정보 수집
+
+# push해서 바로 실행
+on: [push]  
+
+# 1분마다 동작하는 cron 스케줄러
+# on: 
+#   schedule:
+#     - cron: '*/30 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+#     strategy:
+#       matrix:
+#         python-version: [3.7] # 파이썬 3.6, 3.7 버전으로
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up python 3.7
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
+        
+    #oracle 설치
+    - name: install oracle client
+      run: |
+        sudo add-apt-repository universe
+        sudo apt update 
+        sudo apt install alien
+        sudo alien -i oracle-instantclient19.10-basic-19.10.0.0.0-1.x86_64.rpm
+        sudo sh -c "echo /usr/lib/oracle/19.10/client64/lib > /etc/ld.so.conf.d/oracle-instantclient.conf"
+        sudo ldconfig
+        export LD_LIBRARY_PATH=/usr/lib/oracle/19.10/client64/lib:$LD_LIBRARY_PATH
+        
+    # 파이썬 pip 업그레이드
+    - name : Python pip upgrade 
+      run: |
+        python -m pip install --upgrade pip 
+        pip install build
+        pip install cx_Oracle
+        python -m pip install cx_Oracle --upgrade
+    
+    # 파이썬 관련 패키지를 설치
+    - name: install python package 
+      run: |        
+        pip install beautifulsoup4
+        pip install requests 
+        pip install lxml
+        pip install flask
+        pip install flask_cors
+        pip install selenium
+        pip install pandas
+        pip install --upgrade --user urllib3==1.24.3
+                 
+    # 다른 사람이 서버에 올린 chromedriver SetUp
+#     - name: Setup Chromedriver
+#       uses: nanasess/setup-chromedriver@v1.0.1
+
+    # chromedriver 설치
+    - name: Download chromedriver
+      run: |
+        wget -q -O tmp.zip https://chromedriver.storage.googleapis.com/81.0.4044.69/chromedriver_linux64.zip
+        unzip tmp.zip && rm tmp.zip
+        
+    # news_list_crawler.py 파일을 실행!
+    - name: Run!  
+      run: | 
+        python steadybook_githubAction.py
+    
+#     - name: Commits
+#       run: |
+#         git config --local user.email "your@email"
+#         git config --local user.name "Auto_Scraping_Name" # 커밋에 포함될 이름
+#         git add news_list.txt
+#         git commit -m "Auto - Update data with Scraping" # 커밋 메세지
+        
+#     - name: Remote
+#       run: |
+#        git remote remove origin
+#        git remote add origin https://github.com/smartIT8150/github_action_demo.git
+       
+#     - name: Push
+#       uses: ad-m/github-push-action@master
+#       with:
+#         branch: 'master'
+#         github_token: $ 
