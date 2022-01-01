@@ -4,9 +4,9 @@ name: 베스트셀러 정보 수집
 # on: [push]  
 
 # 1분마다 동작하는 cron 스케줄러
-on:
-  schedule:
-    - cron:  '*/2 * * * *'
+# on:
+#   schedule:
+#     - cron:  '*/2 * * * *'
   
 jobs:
   build:
