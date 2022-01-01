@@ -1,12 +1,12 @@
 name: 셀러 정보 수집
 
 # push해서 바로 실행
-on: [push]  
+# on: [push]  
 
 # 1분마다 동작하는 cron 스케줄러
-# on: 
-#   schedule:
-#   - cron: '*/2 * * * *'
+on: 
+  schedule:
+  - cron: '*/2 * * * *'
 
 jobs:
   build:
