@@ -158,7 +158,7 @@ conn = cx_Oracle.connect(oracle_user,oracle_password, '{}:{}/{}'.format(oracle_u
 cursor = conn.cursor()
 
 ## sql문
-#sql = 'delete table t_best' ## t_best 행 삭제
+sql = 'delete table t_best' ## t_best 행 삭제
 sql = 'insert into t_best values(:1,:2)'
 
 for i in range(1, len(df.loc[:,'책제목'])+1):
