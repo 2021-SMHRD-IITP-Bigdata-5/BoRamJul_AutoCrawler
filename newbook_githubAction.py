@@ -24,9 +24,21 @@ oracle_dbName = 'xe'
 
 headers = {'User-Agent':'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/96.0.4664.110 Safari/537.36'}
 
+#driver = webdriver.Chrome(chrome_options=opt, 
+#    executable_path='<your-chromedriver-path>')
+chrome_options = wb.ChromeOptions()
+chrome_options.add_argument("--no-sandbox")
+chrome_options.add_argument("--disable-extensions")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+
+wb_path = os.path.join('chromedriver')
+
+driver = wb.Chrome(executable_path=wb_path,chrome_options=chrome_options)
+
 ## <!-- 베스트신간도서 크롤러 start -->
 # 베스트신간도서(교보문고)
-driver = wb.Chrome()
+# driver = wb.Chrome()
 url = 'http://www.kyobobook.co.kr/newproduct/newProductList.laf?orderClick=Ca1'
 driver.get(url)
 soup = bs(driver.page_source, 'lxml')
