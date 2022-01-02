@@ -158,7 +158,7 @@ conn = cx_Oracle.connect(oracle_user,oracle_password, '{}:{}/{}'.format(oracle_u
 cursor = conn.cursor()
 
 ## sql문
-sql = 'DROP TABLE T_BEST CASCADE CONSTRAINTS' ## T_BEST 삭제
+sql = 'DROP TABLE T_BEST' ## T_BEST 삭제
 sql = 'CREATE TABLE T_BEST(book_title varchar2(200), book_rank number(15)' ## T_BEST 생성
 sql = 'insert into t_best values(:1,:2)'
 
