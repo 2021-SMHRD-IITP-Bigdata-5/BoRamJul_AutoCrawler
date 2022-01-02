@@ -79,7 +79,7 @@ cursor = conn.cursor()
 
 ## sql문
 sql = 'DROP TABLE T_NEW' ## 삭제
-sql = 'CREATE TABLE T_NEW(book_title varchar2(200), book_rank number(15)' ## 생성
+sql = 'CREATE TABLE T_NEW(book_title varchar2(200), book_rank number(15))' ## 생성
 sql = 'insert into T_NEW values(:1,:2)' ## 삽입
 
 for i in range(1, len(df.loc[:,'책제목'])+1):
