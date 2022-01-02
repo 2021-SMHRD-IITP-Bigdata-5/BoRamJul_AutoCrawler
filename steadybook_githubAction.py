@@ -42,8 +42,8 @@ driver = wb.Chrome(executable_path=wb_path,chrome_options=chrome_options)
 ## <!-- 스테디셀러 크롤러 start -->
 # 스테디셀러 (알라딘)
 # driver = wb.Chrome()
-# url = 'https://www.aladin.co.kr/shop/common/wbest.aspx?BranchType=1&BestType=SteadySeller'
-# driver.get(url)
+url = 'https://www.aladin.co.kr/shop/common/wbest.aspx?BranchType=1&BestType=SteadySeller'
+driver.get(url)
 soup = bs(driver.page_source, 'lxml')
 
 title_steady = soup.select('.bo3')
@@ -70,9 +70,9 @@ conn = cx_Oracle.connect(oracle_user,oracle_password, '{}:{}/{}'.format(oracle_u
 # 커서생성
 cursor = conn.cursor()
 
-## sql문
-sql = 'DROP TABLE T_STEADY CASCADE CONSTRAINTS' ## T_STEADY 삭제
-sql = 'CREATE TABLE T_STEADY(book_title varchar2(200), book_rank number(15)' ## T_STEADY 테이블 생성
+## sql
+sql = 'DROP TABLE T_STEADY CASCADE CONSTRAINTS' ## 삭제
+sql = 'CREATE TABLE T_STEADY(book_title varchar2(200), book_rank number(15)' ## 생성
 sql = 'insert into T_STEADY values(:1,:2)'
 
 for i in range(1, len(df.loc[:,'책제목'])+1):
