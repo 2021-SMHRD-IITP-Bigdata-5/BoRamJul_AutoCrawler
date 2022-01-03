@@ -158,11 +158,8 @@ conn = cx_Oracle.connect(oracle_user,oracle_password, '{}:{}/{}'.format(oracle_u
 cursor = conn.cursor()
 
 ## sql문
-# sql = 'DROP TABLE T_BEST' ## action에서 table drop 불가능
-# sql = 'CREATE TABLE T_BEST(book_title varchar2(200), book_rank number(15))' ## 생성 불가능
 sql = "delete from t_best'
 cursor.execute(sql)
-
 sql = 'insert into t_best values(:1,:2)'
 
 for i in range(1, len(df.loc[:,'책제목'])+1):
