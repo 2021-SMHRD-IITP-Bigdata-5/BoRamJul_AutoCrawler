@@ -158,7 +158,7 @@ conn = cx_Oracle.connect(oracle_user,oracle_password, '{}:{}/{}'.format(oracle_u
 cursor = conn.cursor()
 
 ## sql문
-sql = "delete from t_best'
+sql = 'delete from t_best'
 cursor.execute(sql)
 sql = 'insert into t_best values(:1,:2)'
 
