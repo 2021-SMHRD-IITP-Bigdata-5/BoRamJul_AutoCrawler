@@ -83,10 +83,9 @@ cursor = conn.cursor()
 # sql = 'CREATE TABLE T_NEW(book_title varchar2(200), book_rank number(15))' ## 생성
 
 sql = 'delete from T_BEST' ## 데이터 삭제
-
+cursor.execute(sql)
 
 sql = 'insert into T_NEW values(:1,:2)' ## 삽입
-cursor.execute(sql)
  
 for i in range(1, len(df.loc[:,'책제목'])+1):
     cursor.execute(sql,[df.loc[i]['책제목'],i])
