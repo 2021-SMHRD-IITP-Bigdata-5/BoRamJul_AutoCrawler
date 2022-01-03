@@ -82,7 +82,7 @@ cursor = conn.cursor()
 # sql = 'DROP TABLE T_NEW' ## 삭제
 # sql = 'CREATE TABLE T_NEW(book_title varchar2(200), book_rank number(15))' ## 생성
 
-sql = 'delete from T_BEST' ## 데이터 삭제
+sql = 'delete from T_NEW' ## 데이터 삭제
 cursor.execute(sql)
 
 sql = 'insert into T_NEW values(:1,:2)' ## 삽입
