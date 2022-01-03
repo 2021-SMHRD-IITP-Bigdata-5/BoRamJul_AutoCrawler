@@ -54,13 +54,7 @@ for i in range(len(title_steady)):
 dic = {'순위':rank_list_steady,'책제목':title_list_steady}
 df = pd.DataFrame(dic)
 df.set_index('순위', inplace=True)
-df.to_csv('./steady.csv', encoding='euc-kr')
 df
-
-df['순위'] = df['종합순위'].rank(method='first', ascending=True)
-pd.options.display.float_format = '{:.0f}'.format
-df.set_index('순위', inplace=True)
-del df['종합순위']
 ## <!-- 스테디셀러 크롤러 end -->
 
 # 데이터베이스 연결
@@ -70,8 +64,11 @@ conn = cx_Oracle.connect(oracle_user,oracle_password, '{}:{}/{}'.format(oracle_u
 cursor = conn.cursor()
 
 ## sql
-sql = 'DROP TABLE T_STEADY' ## 삭제
-sql = 'CREATE TABLE T_STEADY(book_title varchar2(200), book_rank number(15))' ## 생성
+# sql = 'DROP TABLE T_STEADY' ## 삭제
+# sql = 'CREATE TABLE T_STEADY(book_title varchar2(200), book_rank number(15))' ## 생성
+sql = 'delete from T_STEADY'
+cursor.execute(sql)
+
 sql = 'insert into T_STEADY values(:1,:2)'
 
 for i in range(1, len(df.loc[:,'책제목'])+1):
