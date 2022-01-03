@@ -79,10 +79,15 @@ conn = cx_Oracle.connect(oracle_user,oracle_password, '{}:{}/{}'.format(oracle_u
 cursor = conn.cursor()
 
 ## sql문
-sql = 'DROP TABLE T_NEW' ## 삭제
-sql = 'CREATE TABLE T_NEW(book_title varchar2(200), book_rank number(15))' ## 생성
-sql = 'insert into T_NEW values(:1,:2)' ## 삽입
+# sql = 'DROP TABLE T_NEW' ## 삭제
+# sql = 'CREATE TABLE T_NEW(book_title varchar2(200), book_rank number(15))' ## 생성
 
+sql = 'delete from T_BEST' ## 데이터 삭제
+
+
+sql = 'insert into T_NEW values(:1,:2)' ## 삽입
+cursor.execute(sql)
+ 
 for i in range(1, len(df.loc[:,'책제목'])+1):
     cursor.execute(sql,[df.loc[i]['책제목'],i])
 # cursor.execute(sql, news_href_list[0])
