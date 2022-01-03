@@ -68,7 +68,6 @@ for i in range(len(title_new)):
 dic = {'순위':rank_list_new,'책제목':title_list_new}
 df = pd.DataFrame(dic)
 df.set_index('순위', inplace=True)
-df.to_csv('./new.csv', encoding='euc-kr')
 df
 ## <!-- 베스트신간도서 크롤러 end -->
 
@@ -81,7 +80,6 @@ cursor = conn.cursor()
 ## sql문
 # sql = 'DROP TABLE T_NEW' ## 삭제
 # sql = 'CREATE TABLE T_NEW(book_title varchar2(200), book_rank number(15))' ## 생성
-
 sql = 'delete from T_NEW' ## 데이터 삭제
 cursor.execute(sql)
 
