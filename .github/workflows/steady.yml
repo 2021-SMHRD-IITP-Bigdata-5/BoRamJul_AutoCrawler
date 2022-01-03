@@ -6,7 +6,7 @@ name: 스테디셀러 정보 수집
 # 1분마다 동작하는 cron 스케줄러
 on: 
   schedule:
-    - cron: '*/6 * * * *'
+    - cron: '*/5 * * * *'
 
 jobs:
   build:
